@@ -1,0 +1,325 @@
+1	C	IoT architecture has 3 layers: perception, network, application. No data layer.
+2	A	Perception layer provides full sensing capability.
+3	C	Voltage drives charge movement to form current.
+4	A	Current is defined as positive charge flow direction.
+5	B	Current doing work converts electrical energy to other forms.
+6	C	Multimeter cannot measure signal frequency.
+7	A	Diode key property is unidirectional conductivity.
+8	C	Resistor roles: voltage divider, current divider, current limiter. No voltage limiter.
+9	D	Capacitor: pass AC, block DC, store energy. Not store data.
+10	D	Transistor has amplification capability.
+11	D	1002 means 100x10^2 = 10000 ohm = 10K ohm.
+12	A	104 means 10x10^4 pF = 100000pF = 0.1uF.
+13	B	Series resistor limits LED current to reduce brightness.
+14	B	Inductor blocks AC signal in filter circuit.
+15	B	Relay uses small current to control large current.
+16	B	Series circuit: current is equal through all components.
+17	C	Parallel circuit: voltage is equal across all branches.
+18	B	I=U/R=12V/4K=3mA.
+19	D	U=I*R=4mA*2K=8V.
+20	B	Series same current: U2=I*R2=2mA*3K=6V.
+21	B	Parallel same voltage: U=6mA*2K=12V, I2=12V/3K=4mA.
+22	C	Digital signals represented by digital waveforms.
+23	D	Digital waveform shows logic level vs time.
+24	B	Basic unit of digital circuit is gate circuit.
+25	D	2KB = 2*1024*8bit = 2048*8bit.
+26	B	Logic operators: AND, OR, NOT. OR is a logic operator.
+27	B	74LS14 is NOT gate (inverter) chip.
+28	A	Binary 1011 0110 0111 00 = 0x5B9C.
+29	B	0x3A7B = 0011 1010 0111 1011.
+30	A	1101 AND 1010 = 1000.
+31	D	1101 OR 1010 = 1111.
+32	A	Oscilloscope observes digital waveforms.
+33	B	Buzzer mode detects short circuit continuity.
+34	C	Signal generator produces signals.
+35	C	Signal is physical function carrying information.
+36	D	Frequency domain description reveals frequency components.
+37	B	Error = measured value - true value.
+38	B	Small variation in repeated measurements means high precision.
+39	B	Accuracy plus/minus 0.2C, measurement 20.1, actual range 19.9-20.3C.
+40	B	Temperature drift effect on weighing scale.
+41	C	Sensor sensitivity is output change / input change ratio.
+42	A	8-bit ADC resolution = 1/256.
+43	C	CC2530 is TI ZigBee/IEEE 802.15.4 wireless SoC.
+44	D	CC2530 integrates 8051-compatible MCU core.
+45	B	C language hexadecimal uses 0x prefix.
+46	C	0x1F = 1*16+15 = 31.
+47	A	Hex E = decimal 14.
+48	B	Decimal 28 = 1*16+12 = 0x1C.
+49	D	C language uses #define for symbolic constants.
+50	C	sbit defines individual bits in SFR registers.
+51	A	volatile tells compiler variable may be changed by hardware.
+52	D	Bitwise NOT is ~ operator.
+53	B	Bitwise OR is | operator, used to set bits to 1.
+54	A	Bitwise AND with mask clears specific bits.
+55	C	Shift operators << and >> are left/right shift.
+56	A	P0|=0x01 sets P0 bit 0 to 1.
+57	D	P1&=0xFE clears P0 bit 0 (0xFE=11111110).
+58	B	if-else is selection structure in C.
+59	C	for loop needs initialization, condition, and increment.
+60	A	C language arrays are 0-indexed.
+61	A	IAR Embedded Workbench is common CC2530 development environment.
+62	D	CC Debugger is CC2530 debug probe.
+63	B	F7 (Make) is compile shortcut in IAR.
+64	C	Debug menu Download and Debug downloads and enters debug mode.
+65	A,B,C	D	Circuit states: open circuit, closed circuit, short circuit.
+66	A,B	Transistor main roles: amplification and switching.
+67	A,C,D	Capacitor properties: pass AC, block DC, store energy.
+68	A,B,C	Op-amp applications: voltage follower, voltage comparator, inverting amplifier.
+69	A,B,C	Basic digital logic: AND, OR, NOT.
+70	A,B,C,D	Signal generator can produce triangle, sine, rectangle, sawtooth waves.
+71	B,C	Signal descriptions: time domain and frequency domain.
+72	A,C,D	Minimum system: clock circuit, reset circuit, power circuit.
+73	A,B,C	C preprocessor: file include, conditional compilation, macro definition.
+74	B,C,D	Accuracy plus/minus 0.2, measurement 63.9, possible actual: 63.8, 64.0, 64.2.
+75	A,C,D	Create CC2530 project: chip model, debugger type, compiler version.
+76	A,C,D	CC2530 dev basics: IAR, CCDebugger, CC2530 board.
+77	B	CC2530 has 21 programmable digital I/O ports.
+78	C	P2 port has 5 pins (P2_0~P2_4).
+79	A	P0 port has 8 pins (P0_0~P0_7).
+80	D	CC2530 has no P3 port. P0/P1=8 pins each, P2=5 pins.
+81	B	P1_0 and P1_1 have 20mA drive capability.
+82	D	P1_0 and P1_1 have 20mA drive capability.
+83	B	PxSEL x ranges 0~2 for P0, P1, P2.
+84	B	P0SEL sets P0 port pin function (GPIO or peripheral).
+85	A	PxDIR sets port pin direction (input/output).
+86	C	PxINP sets port pin input mode.
+87	D	P0DIR|=0x01 sets P0_0 as output.
+88	B	P1SEL&=~0x04 sets P1_2 as GPIO function.
+89	A	P1_0 and P1_1 have 20mA drive, others have less.
+90	C	PxINP bit=1 means tri-state (high impedance) input mode.
+91	B	CC2530 I/O can be configured as GPIO or peripheral function.
+92	A	P0SEL and P1SEL are 8-bit registers.
+93	D	CC2530 port drive capability: 4mA and 20mA two levels.
+94	B	To output high: set PxDIR bit to 1 (output), then set output value.
+95	C	P0SEL &= ~0x08 sets P0_3 as GPIO.
+96	A	P1DIR |= 0x20 sets P1_5 as output.
+97	B	P0INP |= 0x01 sets P0_0 as tri-state input.
+98	D	P2INP sets P2 input mode and P0~P2 pull-up/down selection.
+99	C	P0=8 pins, P1=8 pins, P2=5 pins, total 21.
+100	A	PxSEL each bit controls corresponding pin function.
+101	D	P1DIR|=0x03 sets P1_0 and P1_1 as output.
+102	B	P0_2 and P0_3 output: P0SEL&=~0x0C; P0DIR|=0x0C.
+103	A	CC2530 P0/P1/P2 ports all usable as GPIO.
+104	C	P1_2=1 outputs high, P1_2=0 outputs low.
+105	B	P0_0 input state from reading P0 register bit 0.
+106	D	CC2530 port bit operations can use sbit definition.
+107	A,B,C,D	GPIO config needs SEL, DIR, INP.
+108	A,C	P0 and P1 ports each have 8 pins.
+109	B,C,D	P1_0/P1_1=20mA, other P1 pins=4mA.
+110	A,B,C	Port config: PxSEL function, PxDIR direction, PxINP input mode.
+111	A,B,C	D	P0SEL, P1SEL, PxDIR configure pin function.
+112	A,B	P0_0~P0_7 and P1_0~P1_7 = 16 pins with 4mA+ drive.
+113	C,D	P1_0 and P1_1 have 20mA drive capability.
+114	A,B,C,D	P0SEL, P1SEL, P2SEL, PxDIR all related to port config.
+115	A,B,C	PxINP: pull-up, pull-down, or tri-state input mode.
+116	A,C	Config direction: PxDIR, input mode: PxINP.
+117	B	CC2530 has 18 interrupt sources.
+118	C	EA is global interrupt enable bit.
+119	A	Interrupt enable registers: IEN0, IEN1, IEN2.
+120	D	EA=1 enables all interrupts, EA=0 disables.
+121	B	External interrupt trigger: rising edge or falling edge.
+122	C	P0 port external interrupts share P0 interrupt vector.
+123	A	PICTL register sets external interrupt trigger mode.
+124	D	P0 8 pins share one interrupt vector address.
+125	B	__interrupt is interrupt service function keyword.
+126	A	CC2530 ISR cannot have parameters.
+127	C	ISR cannot have return value.
+128	B	#pragma vector = T1_VECTOR specifies Timer1 interrupt vector.
+129	A	This statement means ISR entry at T1 interrupt vector address.
+130	D	P0/P1/P2 each share one interrupt vector, not per-pin independent.
+131	B	Specific pins have external interrupt capability via PxIEN enable.
+132	D	External interrupt trigger mode set by PICTL register.
+133	D	Pin triggers external interrupt, PxIFG corresponding bit auto-sets to 1.
+134	B	PxIEN register enables specific pin external interrupt.
+135	D	External interrupt trigger causes PxIFG corresponding bit to set 1.
+136	C	P0_6=bit6, P0_1=bit1, 0x40|0x02=0x42, use P0IEN.
+137	B	0x30=00110000, corresponds to P1_5 and P1_4.
+138	C	P0IE=1 enable P0 interrupt, P0IEN|=0x02 enable P0_1, EA=1 global enable.
+139	D	P1_2 interrupt: P1IF bit 2 sets to 1.
+140	A	P0_5=bit5(0x20), P0_2=bit2(0x04), 0x20|0x04=0x24.
+141	B	0x41=01000001, corresponds to P0_6 and P0_0.
+142	D	P1_0/P1_1 interrupt affects P1IFG, not P0IFG.
+143	A	P0_0/P0_1 interrupt: P0IFG bit 0 and bit 1 set to 1.
+144	D	P1_0/P1_2 interrupt: P1IFG bit0/bit2 set, not P0IFG.
+145	B	Clear flags: clear PxIFG first, then clear PxIF.
+146	D	P0IF not auto-cleared by hardware after ISR response, needs software clear.
+147	C,D	Core-peripheral interaction: polling and interrupt.
+148	B,D	ISR cannot have parameters, return value is not __interrupt (wrong statement).
+149	A,B,C,D	ISR needs start statement, __interrupt keyword, no params, no return.
+150	A,B,C	D	CC2530 interrupt enable: IEN0, IEN1, IEN2.
+151	A,B,C	IEN0, IEN1, IEN2 support bit operations.
+152	A,B,C	P0, P1, P2 ports have external interrupt input function.
+153	A,B,C,D	Init external interrupt: PxIEN, IENx, PICTL registers.
+154	B,C,D	P1_2 external interrupt: PICTL rising edge, IEN2 enable, EA=1.
+155	A,C	P1_1/P1_5/P1_6=0x62, PICTL falling edge|=0x02.
+156	A,B,C	D	P0_1/P0_6 external interrupt: P0IEN|=0x42, PICTL|=0x01, P0IE=1, EA=1.
+157	C	Timer1 is 16-bit timer.
+158	A	Timer4 is 8-bit timer.
+159	A	Sleep timer is 24-bit timer.
+160	B	Timer1 has 5 capture/compare channels.
+161	B	Sleep timer uses 32KHz clock source.
+162	C	Timer1 has free-running, modulo, up/down modes. No countdown mode.
+163	C	Timer1 functions: interval timing, signal capture, output compare. No output time.
+164	A	Timer1 is most feature-rich timer in CC2530.
+165	A	Sleep timer is 24-bit, not all timers are 16-bit.
+166	D	Timer1 can generate PWM signals.
+167	D	Timer3/4 countdown mode does not run only once.
+168	D	T1CTL cannot select Timer1 specific functions.
+169	C	T1CTL can start or stop Timer1.
+170	C	T3CTL does not provide 3 working modes for selection.
+171	C	T1CC0 stores channel 0 compare value, not mode 0 max value.
+172	C	Free-running mode: counter counts from 0 to 0xFFFF.
+173	B	Modulo mode: counter counts from 0 to T1CC0.
+174	C	Up/down mode: 0 to T1CC0 then back to 0.
+175	B	Modulo mode: increments to T1CC0 then resets to 0.
+176	A	Free-running mode: increments to 0xFFFF then resets to 0.
+177	C	Up/down mode used for center-aligned PWM output.
+178	B	Modulo mode requires setting T1CC0 value.
+179	A	Free-running mode does not need T1CC0 setting.
+180	D	Up/down mode max count value is T1CC0.
+181	B	Timer1 interrupt flag is T1IF.
+182	C	T1CTL[3:2] sets Timer1 working mode.
+183	A	T1CTL[1:0] sets Timer1 prescaler.
+184	D	Timer1 has 4 channels (0~3), not 5.
+185	B	Timer3/4 overflow interrupt controlled by T3CTL/T4CTL TIMIF bit.
+186	C	Timer1 clock source from 32MHz system clock with prescaler.
+187	A,C,D	Timer1 modes: free-running, modulo, up/down.
+188	A,B,C	Timer1: set prescaler, working mode, start/stop.
+189	A,B,C,D	Timer1 functions: interval timing, signal capture, output compare.
+190	A,C	Timer3 and Timer4 are both 8-bit timers.
+191	A,B,C,D	T1CC0H/L store high/low 8 bits, write L first then H.
+192	B,C,D	CC2530 timers: 16-bit and 8-bit, T1=16-bit, T3/T4=8-bit.
+193	A,B,C	Timer working mode set via T1CTL etc.
+194	A,C,D	Timer1 channels for capture and compare functions.
+195	A,B,C,D	Timer applications: timing, PWM, signal capture, frequency measurement.
+196	A,C,D	Timer1 supports 3 modes, multiple channels, can generate interrupts.
+197	B	CC2530 has 2 UARTs (USART0 and USART1).
+198	C	UART = Universal Asynchronous Receiver Transmitter.
+199	A	Baud rate = bits per second in serial communication.
+200	D	Common baud rates: 9600, 19200, 38400, 115200.
+201	B	UART needs TX and RX two data lines.
+202	C	CC2530 USART can be configured as UART or SPI mode.
+203	A	UTX0IF is UART0 transmit complete interrupt flag.
+204	D	Serial frame: start bit, data bits, optional parity, stop bit.
+205	B	CC2530 UART supports 8-bit and 9-bit data formats.
+206	C	URX0IF is UART0 receive complete interrupt flag.
+207	A	Serial communication idle state is high level.
+208	D	CC2530 UART baud rate set by U0BAUD and U0GCR registers.
+209	B	U0CSR register controls UART0 working mode.
+210	C	When transmit buffer empty, UTX0IF flag sets to 1.
+211	A	CC2530 UART uses P0 port pins.
+212	D	CC2530 serial supports odd and even parity.
+213	B	Stop bit can be 1 or 2 bits.
+214	C	UART0 TX pin default is P0_3.
+215	A	UART0 RX pin default is P0_2.
+216	D	CC2530 two USARTs can both be used as UART.
+217	B	Serial receive: LSB first (least significant bit first).
+218	C	Baud rate generator clock source is system clock.
+219	A	U0DBUF is UART0 data buffer register.
+220	D	CC2530 serial also supports SPI mode.
+221	B	Start bit is low level (0), indicates data transmission start.
+222	C	115200bps is high-speed serial communication rate.
+223	A	UART is asynchronous protocol, no clock line needed.
+224	D	CC2530 serial supports DMA transfer.
+225	B	9600 baud rate: 1 byte (10-bit frame) takes about 1.04ms.
+226	C	CC2530 uses PERCFG register for USART0/1 pin mapping.
+227	A,B,C	UART frame: start bit, data bits, stop bit.
+228	A,C,D	CC2530 USART supports UART and SPI modes.
+229	A,B,C,D	Serial config: baud rate, data bits, stop bits.
+230	B,C,D	CC2530 serial registers: U0CSR, U0DBUF, U0BAUD.
+231	A,B,C,D	Common baud rates: 9600, 19200, 38400, 115200.
+232	A,C	D	CC2530 has USART0 and USART1 two serial ports.
+233	A,B,C,D	Serial modes: simplex, half-duplex, full-duplex.
+234	B,C,D	Serial flags: UTX0IF, URX0IF, etc.
+235	A,B,C	Baud rate setup involves U0BAUD and U0GCR registers.
+236	A,B,C,D	Serial can transmit characters, strings, numbers, binary data.
+237	B	CC2530 has 5 DMA channels.
+238	C	DMA allows peripherals to access memory without CPU intervention.
+239	A	DMA channel priority: channel 0 has highest priority.
+240	D	DMA transfer complete generates interrupt.
+241	B	CC2530 DMA supports single byte and block transfer.
+242	C	DMA direction: memory-to-peripheral or peripheral-to-memory.
+243	A	DMA config needs source and destination addresses.
+244	D	DMA trigger source selectable via register config.
+245	B	DMA channel 0 has highest priority.
+246	C	CC2530 DMA data width: 8-bit or 16-bit.
+247	A,B,C	DMA modes: single byte, block transfer, repeat mode.
+248	A,B,C,D	DMA config: source address, destination address, transfer length.
+249	A,C	DMA priority and trigger source configurable via registers.
+250	B,C,D	DMA used for ADC data, serial data, memory copy.
+251	A,B,C,D	DMA config involves DMAARM, DMAREQ registers etc.
+252	B	CC2530 ADC max precision is 12-bit.
+253	C	CC2530 has 8 ADC analog input channels (AIN0~AIN7).
+254	A	ADC result = input voltage / reference voltage * 2^n.
+255	D	CC2530 ADC supports single and continuous conversion.
+256	B	ADCCON1 controls ADC basic settings.
+257	C	ADCCON2 controls sequence conversion.
+258	A	ADCCON3 controls single conversion.
+259	D	ADC decimation rate determines precision and speed.
+260	B	CC2530 ADC reference voltage: AVDD5 or internal 1.25V.
+261	C	10-bit ADC resolution = reference voltage / 2^10.
+262	A	ADCL stores ADC result low byte.
+263	B	ADCH stores ADC result high byte.
+264	D	ADCCON3 does not set ADC conversion mode.
+265	A	CC2530 ADC analog input pins configured in APCFG register.
+266	B	0x21=00100001, corresponds to AIN5 and AIN0.
+267	C	AIN4=bit4, AIN3=bit3, 0x10|0x08=0x18, use |= operation.
+268	C	ADCCON3 sets single conversion reference voltage, decimation rate, channel.
+269	A	ADCCON3 does not include conversion time setting.
+270	D	Single conversion complete does not trigger DMA request.
+271	D	EOC bit: when ADCH is read, hardware auto-clears.
+272	C	EOC bit does not need manual software clear, auto-clears on ADCH read.
+273	A	AVDD5=0x80, 256 decimation=0x20, AIN6=0x06, ADCCON3 for single conversion.
+274	C	Single conversion uses ADCCON3, AVDD5=0x80, 512 decimation=0x30, AIN3=0x03.
+275	B	10-bit ADC ref 5V: resolution=5V/1024=4.89mV.
+276	B	10-bit ADC ref 3.3V: resolution=3.3V/1024=3.23mV.
+277	D	12-bit ADC ref 5V input 2V: 2/5*4096=1638.4, round to 1638.
+278	B	10-bit ADC ref 3.3V digital 725: 725/1024*3.3=2.34V.
+279	C	Battery voltage monitoring uses AVDD5/3 channel.
+280	D	12-bit effective data needs decimation rate 512.
+281	C	Decimation rate 128 corresponds to max 10-bit effective data.
+282	B	Enable ADC interrupt: ADCIE=1 and EA=1.
+283	A	ADC conversion precision refers to result bit width.
+284	D	CC2530 ADC clock source from system clock.
+285	C	ADC conversion time proportional to decimation rate.
+286	B	CC2530 ADC input voltage cannot exceed reference voltage.
+287	A,B,C,D	ADC basic process: sampling, holding, quantizing, encoding.
+288	B,C,D	3.3V ref, less than 3mV resolution needs at least 10-bit.
+289	A,C	D	CC2530 ADC conversion modes: single and sequence.
+290	A,B,C,D	CC2530 ADC decimation rates: 64, 128, 256, 512.
+291	B,C,D	Query single conversion involves ADCCON1 and ADCCON3.
+292	A,B	ADC single result saved in ADCL and ADCH.
+293	A,B,C,D	ADC reference voltage options: AVDD5, AIN7, diff, internal 1.25V.
+294	A,B,C,D	P0_1(AIN1), P1_0(AIN0), P0_2(AIN2) as ADC inputs.
+295	A,B,C,D	ADCCON3 configures reference voltage, decimation rate, channel.
+296	B,D	3.3V/10bit=3.2mV, 5V/10bit=4.89mV, both under 15mV.
+297	C	CC2530 ADC supports multiple reference voltage options.
+298	D	ADCL stores ADC result low byte.
+299	B	ADCH stores ADC result high byte.
+300	D	ADCCON3 does not set ADC conversion mode.
+301	A	APCFG register configures ADC analog input pins.
+302	B	0x21=00100001, AIN5(bit5) and AIN0(bit0).
+303	C	AIN4=bit4, AIN3=bit3, 0x18=00011000, use APCFG|=0x18.
+304	C	ADCCON3 sets single conversion ref voltage, decimation, channel.
+305	A	ADCCON3 does not include conversion time setting.
+306	D	Single conversion complete does not auto-trigger DMA.
+307	D	EOC=1, read ADCH clears it automatically by hardware.
+308	C	EOC bit auto-clears on ADCH read, no manual clear needed.
+309	A	AVDD5=0x80, 256 decimation=0x20, AIN6=0x06, use | operator.
+310	C	Single conversion via ADCCON3, AVDD5=0x80, 512 decimation=0x30, AIN3=0x03.
+311	B	10-bit ADC ref 5V: resolution=5V/1024=4.89mV.
+312	B	10-bit ADC ref 3.3V: resolution=3.3V/1024=3.23mV.
+313	D	12-bit ADC ref 5V input 2V: 2/5*4096=1638.
+314	B	10-bit ADC ref 3.3V output 725: 725/1024*3.3=2.34V.
+315	B	Enable ADC interrupt: ADCIE=1, EA=1.
+316	A,B,C,D	ADC process: sampling, holding, quantizing, encoding.
+317	B,C,D	3.3V ref: 10bit=3.2mV, 12bit=0.8mV, 14bit=0.2mV.
+318	A,C	D	CC2530 ADC conversion modes: single and sequence.
+319	A,B,C,D	CC2530 ADC decimation rates: 64, 128, 256, 512.
+320	B,C,D	Query single conversion: ADCCON1 and ADCCON3.
+321	A,B	ADC result saved in ADCL and ADCH.
+322	A,B,C,D	ADC reference options: AVDD5, AIN7, diff voltage, internal 1.25V.
+323	A,C	D	P0_1(AIN1) and P0_2(AIN2) as ADC analog inputs.
+324	B,C,D	ADCCON3: reference voltage, decimation rate, conversion channel.
+325	B,D	3.3V/10bit=3.2mV, 5V/10bit=4.89mV, both under 15mV.
