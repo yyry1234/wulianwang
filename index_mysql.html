@@ -302,16 +302,54 @@ body::before {
   border-bottom: 1px solid var(--border-color);
   padding: 12px 20px;
   display: none;
-  overflow-x: auto;
 }
 
 .nav-bar.active { display: block; }
+
+.nav-bar-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
 
 .nav-bar .nav-inner {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
+  flex: 1;
+}
+
+.nav-bar.collapsed .nav-inner {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  scroll-behavior: smooth;
+}
+
+.nav-bar.collapsed .nav-inner::-webkit-scrollbar { height: 4px; }
+.nav-bar.collapsed .nav-inner::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+
+.nav-toggle-btn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--neon-cyan);
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nav-toggle-btn:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
 }
 
 .nav-dot {
@@ -941,8 +979,11 @@ body::before {
   </div>
 
   <!-- Nav Bar -->
-  <div class="nav-bar" id="nav-bar">
-    <div class="nav-inner" id="nav-inner"></div>
+  <div class="nav-bar collapsed" id="nav-bar">
+    <div class="nav-bar-wrapper">
+      <div class="nav-inner" id="nav-inner"></div>
+      <button class="nav-toggle-btn" id="nav-toggle-btn" onclick="toggleNavExpand()" title="展开/收起序号">☰</button>
+    </div>
   </div>
 
   <!-- Score Panel -->
@@ -1104,6 +1145,8 @@ function renderNavBar() {
     const answered = examAnswers[i] !== undefined || examBlankAnswers[i] !== undefined;
     return '<div class="nav-dot' + (answered ? ' answered' : '') + '" onclick="scrollToQ(' + i + ')" title="第' + (i+1) + '题">' + (i+1) + '</div>';
   }).join('');
+  document.getElementById('nav-bar').classList.add('collapsed');
+  document.getElementById('nav-toggle-btn').textContent = '☰';
 }
 
 function scrollToQ(idx) {
@@ -1114,6 +1157,24 @@ function scrollToQ(idx) {
     setTimeout(() => el.classList.remove('highlight'), 1500);
   }
   document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('current', i === idx));
+  const navInner = document.getElementById('nav-inner');
+  const currentDot = navInner.querySelector('.nav-dot.current');
+  if (currentDot && document.getElementById('nav-bar').classList.contains('collapsed')) {
+    currentDot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+}
+
+function toggleNavExpand() {
+  const nav = document.getElementById('nav-bar');
+  const btn = document.getElementById('nav-toggle-btn');
+  const collapsed = nav.classList.toggle('collapsed');
+  btn.textContent = collapsed ? '☰' : '✕';
+  if (!collapsed) {
+    const currentDot = document.getElementById('nav-inner').querySelector('.nav-dot.current');
+    if (currentDot) {
+      setTimeout(() => currentDot.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+  }
 }
 
 function getKindLabel(kind) {
@@ -1214,11 +1275,18 @@ function selectOption(qIdx, key, isMulti) {
 }
 
 function confirmSubmit() {
-  const answeredCount = Object.keys(examAnswers).length + Object.keys(examBlankAnswers).length;
-  const unanswered = examQuestions.length - answeredCount;
-  const msg = unanswered > 0
-    ? '还有 ' + unanswered + ' 题未作答，确定要交卷吗？'
-    : '确定要交卷吗？';
+  const unanswered = [];
+  for (let i = 0; i < examQuestions.length; i++) {
+    if (!examAnswers[i] && !examBlankAnswers[i]) unanswered.push(i + 1);
+  }
+  let msg;
+  if (unanswered.length > 0) {
+    const list = unanswered.slice(0, 20).join('、');
+    const suffix = unanswered.length > 20 ? '等' + unanswered.length + '题' : '题';
+    msg = '第' + list + suffix + '尚未作答，确定要提交吗？';
+  } else {
+    msg = '已全部作答，确定要交卷吗？';
+  }
   document.getElementById('confirm-msg').textContent = msg;
   document.getElementById('confirm-modal').classList.add('active');
 }
