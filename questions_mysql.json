@@ -1,0 +1,2189 @@
+[
+  {
+    "id": 1,
+    "kind": "single",
+    "stem": "1、DB表是MySQL中最重要的一个权限表，记录允许连接到服务器的账号信息（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "host"
+      },
+      {
+        "key": "B",
+        "text": "tables_priv"
+      },
+      {
+        "key": "C",
+        "text": "user"
+      },
+      {
+        "key": "D",
+        "text": "columns_priv"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "DB表（即user表）是MySQL中最重要的权限表，记录允许连接到服务器的账号信息。"
+  },
+  {
+    "id": 2,
+    "kind": "blank",
+    "stem": "2、MySQL安装成功后，在系统中会默认建立一个____用户。",
+    "options": [],
+    "answer": [
+      "root"
+    ],
+    "explanation": "MySQL安装成功后，默认会建立一个名为root的超级用户。"
+  },
+  {
+    "id": 3,
+    "kind": "single",
+    "stem": "3、用户的身份由（ ）来决定。",
+    "options": [
+      {
+        "key": "A",
+        "text": "用户的IP地址和主机名"
+      },
+      {
+        "key": "B",
+        "text": "用户使用的用户名和密码"
+      },
+      {
+        "key": "C",
+        "text": "用户的IP地址和使用的用户名"
+      },
+      {
+        "key": "D",
+        "text": "用户用于连接的主机名和使用的用户名"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "MySQL中用户的身份由用户名和主机名（即连接来源）共同决定，不同主机上的同名用户视为不同用户。"
+  },
+  {
+    "id": 4,
+    "kind": "single",
+    "stem": "4、保护数据库，防止未经授权的或不合法的使用造成的数据泄露、更改破坏。这是指数据的（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "安全性"
+      },
+      {
+        "key": "B",
+        "text": "完整性"
+      },
+      {
+        "key": "C",
+        "text": "并发控制"
+      },
+      {
+        "key": "D",
+        "text": "恢复"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "安全性指保护数据库，防止未经授权的访问造成的数据泄露、更改和破坏。"
+  },
+  {
+    "id": 5,
+    "kind": "single",
+    "stem": "5、收到用户的访问请求后，MySQL最先在（ ）表中检查用户的权限。",
+    "options": [
+      {
+        "key": "A",
+        "text": "host"
+      },
+      {
+        "key": "B",
+        "text": "user"
+      },
+      {
+        "key": "C",
+        "text": "db"
+      },
+      {
+        "key": "D",
+        "text": "priv"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "MySQL收到访问请求后，最先检查user表中的全局权限。"
+  },
+  {
+    "id": 6,
+    "kind": "single",
+    "stem": "6、在数据库管理系统中，对存取权限的定义为（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "命令"
+      },
+      {
+        "key": "B",
+        "text": "授权"
+      },
+      {
+        "key": "C",
+        "text": "定义"
+      },
+      {
+        "key": "D",
+        "text": "审计"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "在数据库管理系统中，对存取权限的定义称为授权（Authorization）。"
+  },
+  {
+    "id": 7,
+    "kind": "single",
+    "stem": "7、要想删除用户，应使用（ ）语句。",
+    "options": [
+      {
+        "key": "A",
+        "text": "DELETE USER"
+      },
+      {
+        "key": "B",
+        "text": "DROP USER"
+      },
+      {
+        "key": "C",
+        "text": "DELETE PRIV"
+      },
+      {
+        "key": "D",
+        "text": "DROP PRIV"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "删除用户使用DROP USER语句，DELETE USER不是合法的SQL语法。"
+  },
+  {
+    "id": 8,
+    "kind": "single",
+    "stem": "8、使用select语句将表中数据导出到文件，可以使用哪一子句？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "TO FILE"
+      },
+      {
+        "key": "B",
+        "text": "INTO FILE"
+      },
+      {
+        "key": "C",
+        "text": "OUTTO FILE"
+      },
+      {
+        "key": "D",
+        "text": "INTO OUTFILE"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "SELECT ... INTO OUTFILE 可以将查询结果导出到文件。"
+  },
+  {
+    "id": 9,
+    "kind": "single",
+    "stem": "9、以下哪个表不用于MySQL的权限管理？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "USER"
+      },
+      {
+        "key": "B",
+        "text": "DB"
+      },
+      {
+        "key": "C",
+        "text": "COLUMNS_PRIV"
+      },
+      {
+        "key": "D",
+        "text": "MANAGER"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "MySQL权限管理中涉及的表有user、db、tables_priv、columns_priv、procs_priv等，没有MANAGER表。"
+  },
+  {
+    "id": 10,
+    "kind": "single",
+    "stem": "10、（ ）备份是指在某一次完整备份的基础上，只备份其后数据的变化。",
+    "options": [
+      {
+        "key": "A",
+        "text": "差异"
+      },
+      {
+        "key": "B",
+        "text": "检查"
+      },
+      {
+        "key": "C",
+        "text": "增量"
+      },
+      {
+        "key": "D",
+        "text": "二次"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "增量备份是在某一次完整备份的基础上，只备份其后数据的变化。差异备份是备份自上次完整备份以来所有变化。"
+  },
+  {
+    "id": 11,
+    "kind": "single",
+    "stem": "11、下述哪一个是SQL中的授权命令？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "GRANT"
+      },
+      {
+        "key": "B",
+        "text": "COMMIT"
+      },
+      {
+        "key": "C",
+        "text": "UPDATE"
+      },
+      {
+        "key": "D",
+        "text": "SELECT"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "SQL中的授权命令是GRANT，COMMIT是事务提交，UPDATE和SELECT是DML语句。"
+  },
+  {
+    "id": 12,
+    "kind": "blank",
+    "stem": "12、在MySQL中，授权使用 GRANT 命令，收回权限使用____命令。",
+    "options": [],
+    "answer": [
+      "REVOKE"
+    ],
+    "explanation": "GRANT用于授权，REVOKE用于收回权限。"
+  },
+  {
+    "id": 13,
+    "kind": "blank",
+    "stem": "13、MySQL的访问控制分为两个阶段，分别是____阶段和请求核实阶段。",
+    "options": [],
+    "answer": [
+      "连接核实"
+    ],
+    "explanation": "MySQL访问控制分为连接核实和请求核实两个阶段。连接核实验证用户身份，请求核实验证操作权限。"
+  },
+  {
+    "id": 14,
+    "kind": "single",
+    "stem": "14、触发器的触发事件可以有三种，下面哪一种不能作为触发器的触发事件？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "UPDATE"
+      },
+      {
+        "key": "B",
+        "text": "DELETE"
+      },
+      {
+        "key": "C",
+        "text": "ALTER"
+      },
+      {
+        "key": "D",
+        "text": "INSERT"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "触发器支持INSERT、UPDATE、DELETE三种触发事件，ALTER属于DDL，不能作为触发器的触发事件。"
+  },
+  {
+    "id": 15,
+    "kind": "single",
+    "stem": "15、存储过程和存储函数的相关信息存放在（ ）数据库中。",
+    "options": [
+      {
+        "key": "A",
+        "text": "mysql"
+      },
+      {
+        "key": "B",
+        "text": "information_schema"
+      },
+      {
+        "key": "C",
+        "text": "performance_schema"
+      },
+      {
+        "key": "D",
+        "text": "test"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "存储过程和存储函数的信息存放在information_schema数据库的ROUTINES表中。"
+  },
+  {
+    "id": 16,
+    "kind": "single",
+    "stem": "16、一个触发器能定义在多少个表中？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "只有一个"
+      },
+      {
+        "key": "B",
+        "text": "一个或者多个"
+      },
+      {
+        "key": "C",
+        "text": "1~3个"
+      },
+      {
+        "key": "D",
+        "text": "任意多个"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "MySQL中一个触发器只能定义在一个表上，但一个表可以有多个触发器。"
+  },
+  {
+    "id": 17,
+    "kind": "single",
+    "stem": "17、下面选项中不属于存储过程和存储函数优点的是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "增强代码的重用性和共享性"
+      },
+      {
+        "key": "B",
+        "text": "可以加快运行速度，减少网络流量"
+      },
+      {
+        "key": "C",
+        "text": "可以作为安全机制"
+      },
+      {
+        "key": "D",
+        "text": "编辑简单"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "存储过程和存储函数编辑并不简单，需要专门的语法知识，这是它们的缺点而非优点。"
+  },
+  {
+    "id": 18,
+    "kind": "single",
+    "stem": "18、在一个表上可以有几种不同事件类型的触发器？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "1"
+      },
+      {
+        "key": "B",
+        "text": "2"
+      },
+      {
+        "key": "C",
+        "text": "3"
+      },
+      {
+        "key": "D",
+        "text": "无限制"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "MySQL中一个表可以有3种触发器事件类型：INSERT、UPDATE、DELETE。"
+  },
+  {
+    "id": 19,
+    "kind": "single",
+    "stem": "19、使用哪条语句可以删除触发器trig_Test？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "DROP * FROM trig_Test"
+      },
+      {
+        "key": "B",
+        "text": "DROP trig_Test"
+      },
+      {
+        "key": "C",
+        "text": "DROP TRIGGER WHERE NAME='trig_Test'"
+      },
+      {
+        "key": "D",
+        "text": "DROP TRIGGER trig_Test"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "删除触发器的语法是DROP TRIGGER trig_Test;。"
+  },
+  {
+    "id": 20,
+    "kind": "single",
+    "stem": "20、（ ）是数据库管理系统的基本单位，它是用户定义的一组逻辑一致的程序序列。",
+    "options": [
+      {
+        "key": "A",
+        "text": "程序"
+      },
+      {
+        "key": "B",
+        "text": "命令"
+      },
+      {
+        "key": "C",
+        "text": "事务"
+      },
+      {
+        "key": "D",
+        "text": "文件"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "事务是数据库管理系统的基本单位，是用户定义的一组逻辑一致的程序序列。"
+  },
+  {
+    "id": 21,
+    "kind": "single",
+    "stem": "21、事务的原子性是指（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "事务中包括的所有操作要么都做，要么都不做"
+      },
+      {
+        "key": "B",
+        "text": "一旦提交对数据库的改变是永久的"
+      },
+      {
+        "key": "C",
+        "text": "一个事务内部的操作及使用的数据对并发的其他事务是隔离的"
+      },
+      {
+        "key": "D",
+        "text": "事务必须使数据库从一个一致性状态变到另一个一致性状态"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "事务的原子性（Atomicity）指事务中的所有操作要么都做，要么都不做。B是持久性，C是隔离性，D是一致性。"
+  },
+  {
+    "id": 22,
+    "kind": "blank",
+    "stem": "22、存储过程和存储函数的相关信息存放在____表中，触发器的相关信息存放在triggers表中。",
+    "options": [],
+    "answer": [
+      "routines"
+    ],
+    "explanation": "存储过程和存储函数信息存放在information_schema.ROUTINES表中，触发器信息存放在information_schema.TRIGGERS表中。"
+  },
+  {
+    "id": 23,
+    "kind": "blank",
+    "stem": "23、在MySQL中触发器的执行时间有两种：AFTER和____。",
+    "options": [],
+    "answer": [
+      "before"
+    ],
+    "explanation": "MySQL触发器执行时间有BEFORE和AFTER两种，分别表示在触发事件之前或之后执行。"
+  },
+  {
+    "id": 24,
+    "kind": "single",
+    "stem": "24、为了提高特定查询的速度，对sc(sno, cno, degree)关系创建唯一索引。应该创建在哪个属性（或属性组）上？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "(sno, cno)"
+      },
+      {
+        "key": "B",
+        "text": "(sno, degree)"
+      },
+      {
+        "key": "C",
+        "text": "(cno, degree)"
+      },
+      {
+        "key": "D",
+        "text": "degree"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "应在(sno, cno)属性组上创建唯一索引，因为学号和课程号组合唯一标识一条选课记录。"
+  },
+  {
+    "id": 25,
+    "kind": "single",
+    "stem": "25、在视图上不能完成的操作是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "更新视图"
+      },
+      {
+        "key": "B",
+        "text": "查询"
+      },
+      {
+        "key": "C",
+        "text": "在视图上定义新的基本表"
+      },
+      {
+        "key": "D",
+        "text": "在视图上定义新视图"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "在视图上不能定义新的基本表，基本表只能通过CREATE TABLE创建。"
+  },
+  {
+    "id": 26,
+    "kind": "single",
+    "stem": "26、在SQL中删除一个视图的语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "DELETE"
+      },
+      {
+        "key": "B",
+        "text": "DROP"
+      },
+      {
+        "key": "C",
+        "text": "CLEAR"
+      },
+      {
+        "key": "D",
+        "text": "REVOKE"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "删除视图使用DROP VIEW语句，DELETE用于删除数据，REVOKE用于收回权限。"
+  },
+  {
+    "id": 27,
+    "kind": "single",
+    "stem": "27、为了使索引键的值在基本表中唯一，在创建索引的语句中应该使用（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "UNIQUE"
+      },
+      {
+        "key": "B",
+        "text": "COUNT"
+      },
+      {
+        "key": "C",
+        "text": "DISTINCT"
+      },
+      {
+        "key": "D",
+        "text": "UNION"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "创建唯一索引使用UNIQUE关键字，保证索引键值在表中唯一。"
+  },
+  {
+    "id": 28,
+    "kind": "single",
+    "stem": "28、视图是一种虚拟表，视图的构造基于（ ）。\nI. 基本表  II. 视图  III. 索引",
+    "options": [
+      {
+        "key": "A",
+        "text": "I 或 II"
+      },
+      {
+        "key": "B",
+        "text": "I 或 III"
+      },
+      {
+        "key": "C",
+        "text": "II 或 III"
+      },
+      {
+        "key": "D",
+        "text": "I、II 或 III"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "视图可以基于基本表或视图构建，但不能基于索引构建，索引只是加速查询的物理结构。"
+  },
+  {
+    "id": 29,
+    "kind": "single",
+    "stem": "29、已知关系student(sno, sname, grade)，以下关于语句 CREATE INDEX s_index ON student (grade) 的描述中正确的是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "按成绩降序创建了一个普通索引"
+      },
+      {
+        "key": "B",
+        "text": "按成绩升序创建了一个普通索引"
+      },
+      {
+        "key": "C",
+        "text": "按成绩降序创建了一个全文索引"
+      },
+      {
+        "key": "D",
+        "text": "按成绩升序创建了一个全文索引"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "CREATE INDEX默认创建升序普通B+树索引，全文索引需显式使用FULLTEXT关键字。"
+  },
+  {
+    "id": 30,
+    "kind": "single",
+    "stem": "30、在关系数据库中，为了简化用户的查询操作，而且不增加数据的存储空间，应该创建的数据库对象是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "Table（表）"
+      },
+      {
+        "key": "B",
+        "text": "Index（索引）"
+      },
+      {
+        "key": "C",
+        "text": "Cursor（游标）"
+      },
+      {
+        "key": "D",
+        "text": "View（视图）"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "视图可以简化查询操作且不增加存储空间，因为视图只存储查询定义，不存储实际数据。"
+  },
+  {
+    "id": 31,
+    "kind": "single",
+    "stem": "31、在下列几种情况下不适合创建索引的是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "字段的取值范围很小"
+      },
+      {
+        "key": "B",
+        "text": "用作查询条件的字段"
+      },
+      {
+        "key": "C",
+        "text": "频繁搜索的字段"
+      },
+      {
+        "key": "D",
+        "text": "连接中频繁使用的字段"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "字段取值范围很小（如性别）时不适合创建索引，因为区分度低，索引效果差。"
+  },
+  {
+    "id": 32,
+    "kind": "single",
+    "stem": "32、SQL的数据操作语句包括SELECT、INSERT、UPDATE和DELETE等。其中最重要也是使用最频繁的语句是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT"
+      },
+      {
+        "key": "B",
+        "text": "INSERT"
+      },
+      {
+        "key": "C",
+        "text": "UPDATE"
+      },
+      {
+        "key": "D",
+        "text": "DELETE"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "SELECT是SQL中最重要、使用最频繁的语句，用于从数据库中检索数据。"
+  },
+  {
+    "id": 33,
+    "kind": "single",
+    "stem": "33、有三个关系S(S#,SNAME,SEX,DEPARTMENT)，C(C#,CNAME,TEACHER)，SC(S#,C#,GRADE)。若要查找每个学生的学号、姓名、选修的课程名和成绩，将使用关系（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "S、SC"
+      },
+      {
+        "key": "B",
+        "text": "SC、C"
+      },
+      {
+        "key": "C",
+        "text": "S、C"
+      },
+      {
+        "key": "D",
+        "text": "S、SC、C"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "需要S（学号、姓名）、SC（学号、课程号、成绩）、C（课程号、课程名）三个表联合查询。"
+  },
+  {
+    "id": 34,
+    "kind": "single",
+    "stem": "34、有三个关系S(S#,SNAME,SEX,DEPARTMENT)，C(C#,CNAME,TEACHER)，SC(S#,C#,GRADE)。若要查找姓名中第一个字为“王”的所有学生的学号和姓名，正确的SQL语句是？（ ）\nI.  SELECT S#,SNAME FROM S WHERE SNAME=‘王%’\nII. SELECT S#,SNAME FROM S WHERE SNAME LIKE ‘王%’\nIII.SELECT S#,SNAME FROM S WHERE SNAME LIKE ‘王_’",
+    "options": [
+      {
+        "key": "A",
+        "text": "I"
+      },
+      {
+        "key": "B",
+        "text": "II"
+      },
+      {
+        "key": "C",
+        "text": "III"
+      },
+      {
+        "key": "D",
+        "text": "全部"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "使用LIKE配合%通配符可以匹配以‘王’开头的所有姓名，等号不支持通配符，下划线只匹配单个字符。"
+  },
+  {
+    "id": 35,
+    "kind": "single",
+    "stem": "35、若要查询选修了三门以上课程的学生的学号，则正确的SQL语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT S# FROM SC GROUP BY S# WHERE COUNT(*) > 3"
+      },
+      {
+        "key": "B",
+        "text": "SELECT S# FROM SC GROUP BY S# HAVING COUNT(*) > 3"
+      },
+      {
+        "key": "C",
+        "text": "SELECT S# FROM SC ORDER BY S# WHERE COUNT(*) > 3"
+      },
+      {
+        "key": "D",
+        "text": "SELECT S# FROM SC ORDER BY S# HAVING COUNT(*) > 3"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "GROUP BY后用HAVING筛选分组结果，WHERE不能用于聚合函数过滤，且分组查询必须用GROUP BY而非ORDER BY。"
+  },
+  {
+    "id": 36,
+    "kind": "single",
+    "stem": "36、若要查找由张静老师执教的数据库课程的平均成绩、最高成绩和最低成绩，则应使用关系（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "S和SC"
+      },
+      {
+        "key": "B",
+        "text": "SC和C"
+      },
+      {
+        "key": "C",
+        "text": "S和C"
+      },
+      {
+        "key": "D",
+        "text": "S、SC和C"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "查询张静老师执教的课程成绩，需要SC（成绩）和C（课程名、教师名）两个表。教师信息在C表中，不需要S表。"
+  },
+  {
+    "id": 37,
+    "kind": "single",
+    "stem": "37、有三个关系S(S#,SNAME,SEX,DEPARTMENT)，C(C#,CNAME,TEACHER)，SC(S#,C#,GRADE)。若要查找分数（GRADE）不及格的学生姓名（SNAME），正确的是？（ ）\nI. 嵌套子查询方式\nII. JOIN连接方式\nIII. 关联子查询方式",
+    "options": [
+      {
+        "key": "A",
+        "text": "I 和 II"
+      },
+      {
+        "key": "B",
+        "text": "I 和 III"
+      },
+      {
+        "key": "C",
+        "text": "II 和 III"
+      },
+      {
+        "key": "D",
+        "text": "I、II 和 III"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "子查询（嵌套查询）和JOIN连接查询都能实现不及格学生姓名查找，II和III正确。"
+  },
+  {
+    "id": 38,
+    "kind": "single",
+    "stem": "38、下列关于保持数据库完整性的叙述中哪一个是不正确的？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "向关系SC插入元组时，S#和C#都不能是空值"
+      },
+      {
+        "key": "B",
+        "text": "可以任意删除关系SC中的元组"
+      },
+      {
+        "key": "C",
+        "text": "向任何一个关系插入元组时，必须保证该关系主键值的唯一性"
+      },
+      {
+        "key": "D",
+        "text": "可以任意删除关系C中的元组"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "不能任意删除关系C中的元组，因为C中的课程号可能被SC表的外键引用，违反参照完整性。"
+  },
+  {
+    "id": 39,
+    "kind": "single",
+    "stem": "39、检索所有比“王华”年龄大的学生的姓名、年龄和性别。下面正确的SELECT语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT SN,AGE,SEX FROM S WHERE AGE>(SELECT AGE FROM S WHERE SN=‘王华’)"
+      },
+      {
+        "key": "B",
+        "text": "SELECT SN,AGE,SEX FROM S WHERE SN=‘王华’"
+      },
+      {
+        "key": "C",
+        "text": "SELECT SN,AGE,SEX FROM S WHERE AGE>(SELECT AGE WHERE SN=‘王华’)"
+      },
+      {
+        "key": "D",
+        "text": "SELECT SN,AGE,SEX FROM S WHERE AGE>王华.AGE"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "使用子查询先查出王华的年龄，再查年龄大于该值的学生。C缺少FROM子句，D语法错误。"
+  },
+  {
+    "id": 40,
+    "kind": "single",
+    "stem": "40、检索选修了“C2”课程的学生中成绩最高的学生的学号，正确的SELECT语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT S# FROM SC WHERE C#=‘C2’ AND GRADE>=(SELECT GRADE FROM SC WHERE C#=‘C2’)"
+      },
+      {
+        "key": "B",
+        "text": "SELECT S# FROM SC WHERE C#=‘C2’ AND GRADE IN (SELECT GRADE FROM SC WHERE C#=‘C2’)"
+      },
+      {
+        "key": "C",
+        "text": "SELECT S# FROM SC WHERE C#=‘C2’ AND GRADE NOT IN (SELECT GRADE FROM SC WHERE C#=‘C2’)"
+      },
+      {
+        "key": "D",
+        "text": "SELECT S# FROM SC WHERE C#=‘C2’ AND GRADE >=ALL(SELECT GRADE FROM SC WHERE C#=‘C2’)"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": ">=ALL(子查询)可以找到成绩大于等于所有C2课程成绩的最高分学生。A的>=子查询返回多行会报错。"
+  },
+  {
+    "id": 41,
+    "kind": "single",
+    "stem": "41、若要检索学生姓名及所选修课程的课程号和成绩，正确的SELECT语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT S.SN,SC.C#,SC.GRADE FROM S WHERE S.S#=SC.S#"
+      },
+      {
+        "key": "B",
+        "text": "SELECT S.SN,SC.C#,SC.GRADE FROM SC WHERE S.S#=SC.S#"
+      },
+      {
+        "key": "C",
+        "text": "SELECT S.SN,SC.C#,SC.GRADE FROM S,SC WHERE S.S#=SC.S#"
+      },
+      {
+        "key": "D",
+        "text": "SELECT S.SN,SC.C#,SC.GRADE FROM S,SC"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "多表查询需在FROM中列出所有表，并在WHERE中指定连接条件S.S#=SC.S#。A和B只FROM了一个表却引用了另一个表。"
+  },
+  {
+    "id": 42,
+    "kind": "single",
+    "stem": "42、若要检索选修4门以上课程的学生总成绩（不统计不及格的课程成绩），并要求按总成绩的降序排序，正确的SELECT语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT S#,SUM(GRADE) FROM SC WHERE GRADE>=60 GROUP BY S# ORDER BY S# HAVING COUNT(*)>=4"
+      },
+      {
+        "key": "B",
+        "text": "SELECT S#,SUM(GRADE) FROM SC WHERE GRADE>=60 GROUP BY S# HAVING COUNT(*)>=4 ORDER BY 2 DESC"
+      },
+      {
+        "key": "C",
+        "text": "SELECT S#,SUM(GRADE) FROM SC WHERE GRADE>=60 GROUP BY S# HAVING COUNT(*)<=4 ORDER BY 2 DESC"
+      },
+      {
+        "key": "D",
+        "text": "SELECT S#,SUM(GRADE) FROM SC WHERE GRADE>=60 GROUP BY S# HAVING COUNT(*)>=4 ORDER BY 2"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "GROUP BY后用HAVING COUNT(*)>=4筛选，ORDER BY 2 DESC按第二列（总成绩）降序排列。A中ORDER BY应在HAVING之后。"
+  },
+  {
+    "id": 43,
+    "kind": "single",
+    "stem": "43、选修了“ACCESS”课程且年龄不小于20的全体学生姓名的SQL语句是 SELECT SN FROM S,C,SC WHERE ____。则横线处应该是下列哪项？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "S.S#=SC.S# AND C.C#=SC.C# AND AGE>=20 AND CN=‘ACCESS’"
+      },
+      {
+        "key": "B",
+        "text": "S.S#=SC.S# OR C.C#=SC.C# AND AGE>=20 AND CN=‘ACCESS’"
+      },
+      {
+        "key": "C",
+        "text": "AGE>=20 AND CN=‘ACCESS’"
+      },
+      {
+        "key": "D",
+        "text": "AGE>=20 AND CN=‘ACCESS’"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "三表连接需要两个等值连接条件S.S#=SC.S#和C.C#=SC.C#，加上年龄和课程名筛选条件。"
+  },
+  {
+    "id": 44,
+    "kind": "single",
+    "stem": "44、在SQL中子查询是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "返回单表中数据子集的查询语句"
+      },
+      {
+        "key": "B",
+        "text": "选取多表中字段子集的查询语句"
+      },
+      {
+        "key": "C",
+        "text": "选取单表中字段子集的查询语句"
+      },
+      {
+        "key": "D",
+        "text": "嵌入另一个查询语句之中的查询语句"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "子查询（Subquery）是嵌套在另一个查询语句中的SELECT查询。"
+  },
+  {
+    "id": 45,
+    "kind": "single",
+    "stem": "45、在SQL中条件“年龄 BETWEEN 20 AND 30”表示年龄在20~30岁，且（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "包括20岁和30岁"
+      },
+      {
+        "key": "B",
+        "text": "不包括20岁和30岁"
+      },
+      {
+        "key": "C",
+        "text": "包括20岁，但不包括30岁"
+      },
+      {
+        "key": "D",
+        "text": "包括30岁，但不包括20岁"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "BETWEEN...AND...在SQL中是闭区间，包括边界值20和30。"
+  },
+  {
+    "id": 46,
+    "kind": "single",
+    "stem": "46、下列聚集函数不忽略空值的是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "SUM(列名)"
+      },
+      {
+        "key": "B",
+        "text": "MAX(列名)"
+      },
+      {
+        "key": "C",
+        "text": "COUNT(*)"
+      },
+      {
+        "key": "D",
+        "text": "AVG(列名)"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "COUNT(*)统计所有行数，不忽略NULL值行。其他聚集函数（SUM、MAX、AVG）都忽略NULL值。"
+  },
+  {
+    "id": 47,
+    "kind": "single",
+    "stem": "47、在SQL中，下列涉及空值的操作，不正确的是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "age IS NULL"
+      },
+      {
+        "key": "B",
+        "text": "age IS NOT NULL"
+      },
+      {
+        "key": "C",
+        "text": "age = NULL"
+      },
+      {
+        "key": "D",
+        "text": "NOT(age IS NULL)"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "判断空值应使用IS NULL，不能使用= NULL，因为NULL与任何值的比较结果都是NULL/UNKNOWN。"
+  },
+  {
+    "id": 48,
+    "kind": "single",
+    "stem": "48、已知学生选课信息表sc(sno, cno, grade)。查询至少选修了一门课程，但没有学习成绩的学生学号和课程号的SQL语句是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "SELECT sno,cno FROM sc WHERE grade=NULL"
+      },
+      {
+        "key": "B",
+        "text": "SELECT sno,cno FROM sc WHERE grade IS ''"
+      },
+      {
+        "key": "C",
+        "text": "SELECT sno,cno FROM sc WHERE grade IS NULL"
+      },
+      {
+        "key": "D",
+        "text": "SELECT sno,cno FROM sc WHERE grade=''"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "判断NULL应使用IS NULL而非=NULL或=''。没有成绩即grade为NULL。"
+  },
+  {
+    "id": 49,
+    "kind": "single",
+    "stem": "49、若用如下SQL语句创建一个student表：CREATE TABLE student(no CHAR(4) NOT NULL, name CHAR(8) NOT NULL, sex CHAR(2), age INT); 那么向student表中插入记录正确的是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "INSERT INTO student VALUES('1031','曾华','男','23')"
+      },
+      {
+        "key": "B",
+        "text": "INSERT INTO student VALUES('1031','曾华',NULL,NULL)"
+      },
+      {
+        "key": "C",
+        "text": "INSERT INTO student VALUES(NULL,'曾华','男','23')"
+      },
+      {
+        "key": "D",
+        "text": "INSERT INTO student VALUES('1031',NULL,'男',23)"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "no和name有NOT NULL约束不能为NULL。sex和age无NOT NULL约束可以为NULL。A中‘男’没有引号或age加了引号，C中no为NULL违反NOT NULL约束，D中name为NULL违反NOT NULL约束。"
+  },
+  {
+    "id": 50,
+    "kind": "single",
+    "stem": "50、要在基本表S中增加一列CN（课程名），可用下面哪条语句？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "ADD TABLE S(CN CHAR(8))"
+      },
+      {
+        "key": "B",
+        "text": "ADD TABLE S ALTER(CN CHAR(8))"
+      },
+      {
+        "key": "C",
+        "text": "ALTER TABLE S ADD CN CHAR(8)"
+      },
+      {
+        "key": "D",
+        "text": "ALTER TABLE S(ADD CN CHAR(8))"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "ALTER TABLE S ADD CN CHAR(8)是添加列的正确语法，ADD TABLE不是合法SQL语法。"
+  },
+  {
+    "id": 51,
+    "kind": "single",
+    "stem": "51、要删除表S中的AGE字段，可以通过下列哪项语句实现？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "DELETE AGE FROM S"
+      },
+      {
+        "key": "B",
+        "text": "ALTER TABLE S DROP AGE"
+      },
+      {
+        "key": "C",
+        "text": "UPDATE S AGE"
+      },
+      {
+        "key": "D",
+        "text": "ALTER TABLE S 'AGE'"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "ALTER TABLE S DROP AGE是删除列的正确语法。DELETE用于删除数据行，不是列。"
+  },
+  {
+    "id": 52,
+    "kind": "single",
+    "stem": "52、假设关系数据库中有一个表S的关系模式为S(SN,CN,GRADE)，若要将“王二”的化学成绩改为85分，下列哪项操作是正确的？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "UPDATE S SET GRADE=85 WHERE SN=‘王二’ AND CN=‘化学’"
+      },
+      {
+        "key": "B",
+        "text": "UPDATE S SET GRADE=‘85’ WHERE SN=‘王二’ AND CN=‘化学’"
+      },
+      {
+        "key": "C",
+        "text": "UPDATE GRADE=85 WHERE SN=‘王二’ AND CN=‘化学’"
+      },
+      {
+        "key": "D",
+        "text": "UPDATE GRADE=‘85’ WHERE SN=‘王二’ AND CN=‘化学’"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "GRADE为数值型不加引号，UPDATE SET语法正确，WHERE同时指定学生名和课程名。B中数值加引号虽可能隐式转换但不规范。"
+  },
+  {
+    "id": 53,
+    "kind": "blank",
+    "stem": "53、在SQL中，要删除表aa中的所有数据记录，应使用的语句是____。",
+    "options": [],
+    "answer": [
+      "delete from aa;"
+    ],
+    "explanation": "DELETE FROM aa;删除表中所有数据。注意TRUNCATE TABLE aa;也可以，但题干要求DELETE语句。"
+  },
+  {
+    "id": 54,
+    "kind": "blank",
+    "stem": "54、设有关系SC(sno,cname,grade)，要将所有学生的“数据库技术”课程的成绩增加5分，请补充完整：UPDATE SC ____ WHERE cname=‘数据库技术’;",
+    "options": [],
+    "answer": [
+      "SET grade=grade+5"
+    ],
+    "explanation": "SET grade=grade+5实现成绩在原有基础上增加5分。"
+  },
+  {
+    "id": 55,
+    "kind": "blank",
+    "stem": "55、有关系S(S#,SNAME,AGE)，若需要查询姓名相同的不同学生的学号、姓名，请补充完整：SELECT A.S#,A.SNAME FROM S AS A,S AS B WHERE ____ AND A.S#<>B.S#;",
+    "options": [],
+    "answer": [
+      "A.SNAME=B.SNAME"
+    ],
+    "explanation": "自连接查询姓名相同但学号不同的学生，需要A.SNAME=B.SNAME作为等值连接条件。"
+  },
+  {
+    "id": 56,
+    "kind": "single",
+    "stem": "56、下面哪种数据类型不可以存储数据256？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "BIGINT"
+      },
+      {
+        "key": "B",
+        "text": "INT"
+      },
+      {
+        "key": "C",
+        "text": "SMALLINT"
+      },
+      {
+        "key": "D",
+        "text": "TINYINT"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "TINYINT范围是-128~127（有符号）或0~255（无符号），无法存储256。SMALLINT范围是-32768~32767。"
+  },
+  {
+    "id": 57,
+    "kind": "single",
+    "stem": "57、下面有关主键和外键之间的关系描述，正确的是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "一个表中最多只能有一个主键约束，可以有多个外键约束"
+      },
+      {
+        "key": "B",
+        "text": "一个表中最多只有一个外键约束，也只有一个主键约束"
+      },
+      {
+        "key": "C",
+        "text": "在定义主键、外键约束时，可以先定义主键约束，也可以先定义外键约束"
+      },
+      {
+        "key": "D",
+        "text": "在定义主键、外键约束时，应该首先定义外键约束，然后定义主键约束"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "一个表只能有一个主键约束（可由多列组成），但可以有多个外键约束引用不同的父表。"
+  },
+  {
+    "id": 58,
+    "kind": "single",
+    "stem": "58、下面关于数据库中表的行和列的叙述正确的是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "表中的行是有序的，列是无序的"
+      },
+      {
+        "key": "B",
+        "text": "表中的列是有序的，行是无序的"
+      },
+      {
+        "key": "C",
+        "text": "表中的行和列都是有序的"
+      },
+      {
+        "key": "D",
+        "text": "表中的行和列都是无序的"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "在关系数据库理论中，表中的行是无序的（集合概念），列也是无序的（属性集合）。这与物理存储中可能存在的顺序无关。"
+  },
+  {
+    "id": 59,
+    "kind": "single",
+    "stem": "59、在下列SQL语句中，修改表结构的语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "CREATE"
+      },
+      {
+        "key": "B",
+        "text": "ALTER"
+      },
+      {
+        "key": "C",
+        "text": "UPDATE"
+      },
+      {
+        "key": "D",
+        "text": "INSERT"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "ALTER用于修改表结构（DDL），CREATE用于创建，UPDATE修改数据（DML），INSERT插入数据。"
+  },
+  {
+    "id": 60,
+    "kind": "single",
+    "stem": "60、在MySQL 8.0中，默认的MySQL服务的服务名称是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "mysql"
+      },
+      {
+        "key": "B",
+        "text": "mysql57"
+      },
+      {
+        "key": "C",
+        "text": "mysql80"
+      },
+      {
+        "key": "D",
+        "text": "mysql8.0"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "MySQL 8.0的默认Windows服务名是MySQL80。"
+  },
+  {
+    "id": 61,
+    "kind": "single",
+    "stem": "61、下列选项中属于创建数据库的语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "CREATE DATABASE"
+      },
+      {
+        "key": "B",
+        "text": "ALTER DATABASE"
+      },
+      {
+        "key": "C",
+        "text": "DROP DATABASE"
+      },
+      {
+        "key": "D",
+        "text": "以上都不是"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "CREATE DATABASE是创建数据库的语句，ALTER DATABASE修改数据库，DROP DATABASE删除数据库。"
+  },
+  {
+    "id": 62,
+    "kind": "single",
+    "stem": "62、在创建数据库时，每个数据库都对应存放在一个与数据库同名的（ ）中。",
+    "options": [
+      {
+        "key": "A",
+        "text": "文件"
+      },
+      {
+        "key": "B",
+        "text": "文件夹"
+      },
+      {
+        "key": "C",
+        "text": "路径"
+      },
+      {
+        "key": "D",
+        "text": "以上都不是"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "MySQL中每个数据库对应存放在data目录下与数据库同名的文件夹中。"
+  },
+  {
+    "id": 63,
+    "kind": "single",
+    "stem": "63、显示当前MySQL服务器上所有数据库的语句是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "SHOW DATABASES;"
+      },
+      {
+        "key": "B",
+        "text": "SHOW DATABASE;"
+      },
+      {
+        "key": "C",
+        "text": "LIST DATABASES;"
+      },
+      {
+        "key": "D",
+        "text": "LIST DATABASE;"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "SHOW DATABASES;显示所有数据库，DATABASES是复数形式。"
+  },
+  {
+    "id": 64,
+    "kind": "single",
+    "stem": "64、SQL又称为（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "结构化定义语言"
+      },
+      {
+        "key": "B",
+        "text": "结构化操纵语言"
+      },
+      {
+        "key": "C",
+        "text": "结构化控制语言"
+      },
+      {
+        "key": "D",
+        "text": "结构化查询语言"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "SQL全称是Structured Query Language，即结构化查询语言。"
+  },
+  {
+    "id": 65,
+    "kind": "single",
+    "stem": "65、下列选项中属于删除数据库的语句是？（ ）",
+    "options": [
+      {
+        "key": "A",
+        "text": "USE DATABASE"
+      },
+      {
+        "key": "B",
+        "text": "CREATE DATABASE"
+      },
+      {
+        "key": "C",
+        "text": "DROP DATABASE"
+      },
+      {
+        "key": "D",
+        "text": "以上都不是"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "DROP DATABASE是删除数据库的语句，USE DATABASE用于切换数据库。"
+  },
+  {
+    "id": 66,
+    "kind": "single",
+    "stem": "66、下列数据库中，（ ）不是安装MySQL 8.0后默认生成的数据库。",
+    "options": [
+      {
+        "key": "A",
+        "text": "mysql"
+      },
+      {
+        "key": "B",
+        "text": "test"
+      },
+      {
+        "key": "C",
+        "text": "information_schema"
+      },
+      {
+        "key": "D",
+        "text": "performance_schema"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "MySQL 8.0默认生成mysql、information_schema、performance_schema、sys四个数据库，不包含test数据库（早期版本有）。"
+  },
+  {
+    "id": 67,
+    "kind": "single",
+    "stem": "67、E-R模型中的三要素是（ ）。",
+    "options": [
+      {
+        "key": "A",
+        "text": "实体、属性、实体集"
+      },
+      {
+        "key": "B",
+        "text": "实体、键、联系"
+      },
+      {
+        "key": "C",
+        "text": "实体、属性、联系"
+      },
+      {
+        "key": "D",
+        "text": "实体、域、候选键"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "E-R模型三要素是实体（Entity）、属性（Attribute）、联系（Relationship）。"
+  },
+  {
+    "id": 68,
+    "kind": "single",
+    "stem": "68、使用关键字（ ）可以将查询结果中的重复行去掉，只保留其中一行记录。",
+    "options": [
+      {
+        "key": "A",
+        "text": "ALL"
+      },
+      {
+        "key": "B",
+        "text": "DISTINCT"
+      },
+      {
+        "key": "C",
+        "text": "TOP"
+      },
+      {
+        "key": "D",
+        "text": "UNION"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "DISTINCT关键字可以去重，只保留不重复的行。ALL是默认行为（保留所有行）。"
+  },
+  {
+    "id": 69,
+    "kind": "single",
+    "stem": "69、在SELECT语句中与HAVING子句同时使用的是（ ）子句。",
+    "options": [
+      {
+        "key": "A",
+        "text": "ORDER BY"
+      },
+      {
+        "key": "B",
+        "text": "WHERE"
+      },
+      {
+        "key": "C",
+        "text": "GROUP BY"
+      },
+      {
+        "key": "D",
+        "text": "无需配合"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "HAVING和GROUP BY配合使用，对分组结果进行过滤。HAVING通常不能脱离GROUP BY单独使用。"
+  },
+  {
+    "id": 70,
+    "kind": "true_false",
+    "stem": "70、创建唯一索引时，应保证创建索引的字段不包含重复的数据，并且没有两个或两个以上的空值。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。唯一索引要求字段值不重复，且NULL值不能超过一个（因为多个NULL不会被视为相等，但唯一索引通常允许一个NULL）。"
+  },
+  {
+    "id": 71,
+    "kind": "true_false",
+    "stem": "71、对视图的一切操作最终要转换成为对基本表的操作。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。视图是虚拟表，对视图的操作最终都会转化为对基本表的操作。"
+  },
+  {
+    "id": 72,
+    "kind": "blank",
+    "stem": "72、在E-R图中，矩形表示____。",
+    "options": [],
+    "answer": [
+      "实体"
+    ],
+    "explanation": "E-R图中矩形表示实体（Entity），菱形表示联系（Relationship），椭圆表示属性（Attribute）。"
+  },
+  {
+    "id": 73,
+    "kind": "blank",
+    "stem": "73、在MySQL中，可以使用____语句或TRUNCATE语句删除表中的一行或多行数据。",
+    "options": [],
+    "answer": [
+      "delete"
+    ],
+    "explanation": "DELETE语句用于删除表中的数据行，可以配合WHERE条件删除指定行。"
+  },
+  {
+    "id": 74,
+    "kind": "blank",
+    "stem": "74、能唯一标识表中一行的字段或字段组合称为____。",
+    "options": [],
+    "answer": [
+      "主键"
+    ],
+    "explanation": "能唯一标识表中一行的字段或字段组合称为主键（Primary Key）。"
+  },
+  {
+    "id": 75,
+    "kind": "blank",
+    "stem": "75、显示当前数据库下有哪些表的命令是____。",
+    "options": [],
+    "answer": [
+      "show tables;"
+    ],
+    "explanation": "SHOW TABLES;显示当前数据库下的所有表。"
+  },
+  {
+    "id": 76,
+    "kind": "blank",
+    "stem": "76、设置数据表的字段值自动增加使用的选项名称为____。",
+    "options": [],
+    "answer": [
+      "auto_increment"
+    ],
+    "explanation": "AUTO_INCREMENT设置字段值自动增加，通常用于主键。"
+  },
+  {
+    "id": 77,
+    "kind": "blank",
+    "stem": "77、数据类型为DECIMAL(4,2)的字段，可以存储的最大值为____。",
+    "options": [],
+    "answer": [
+      "99.99"
+    ],
+    "explanation": "DECIMAL(4,2)总位数4，小数位2，整数部分最多2位，因此最大值为99.99。"
+  },
+  {
+    "id": 78,
+    "kind": "blank",
+    "stem": "78、将mydb数据库切换为当前数据库的命令是____。",
+    "options": [],
+    "answer": [
+      "use mydb;"
+    ],
+    "explanation": "USE mydb;切换当前数据库为mydb。"
+  },
+  {
+    "id": 79,
+    "kind": "blank",
+    "stem": "79、显示当前服务器中所有数据库的命令是____。",
+    "options": [],
+    "answer": [
+      "show databases;"
+    ],
+    "explanation": "SHOW DATABASES;显示当前MySQL服务器中的所有数据库。"
+  },
+  {
+    "id": 80,
+    "kind": "true_false",
+    "stem": "80、MySQL是层次模型的数据库产品。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。MySQL是关系型数据库管理系统（RDBMS），不是层次模型数据库。层次模型的典型代表是IBM的IMS。"
+  },
+  {
+    "id": 81,
+    "kind": "true_false",
+    "stem": "81、数据库管理员的缩写为DBA。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。DBA是Database Administrator（数据库管理员）的缩写。"
+  },
+  {
+    "id": 82,
+    "kind": "true_false",
+    "stem": "82、数据库管理系统是数据库系统的核心。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。DBMS（数据库管理系统）是数据库系统的核心软件。"
+  },
+  {
+    "id": 83,
+    "kind": "true_false",
+    "stem": "83、E-R图在需求分析阶段生成。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。E-R图在概念设计阶段生成，需求分析阶段的产物是数据流图和数据字典等。"
+  },
+  {
+    "id": 84,
+    "kind": "true_false",
+    "stem": "84、在数据库设计中，概念设计的结果是一个与DBMS无关的概念模式。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。概念设计的结果是概念模式（如E-R图），与具体DBMS无关。"
+  },
+  {
+    "id": 85,
+    "kind": "true_false",
+    "stem": "85、ORDER BY子句可以实现分组查询。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。ORDER BY用于排序，GROUP BY才用于分组查询。"
+  },
+  {
+    "id": 86,
+    "kind": "true_false",
+    "stem": "86、查询出表中的所有列时，可以使用SELECT *。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。SELECT * 可以查询表中所有列。"
+  },
+  {
+    "id": 87,
+    "kind": "true_false",
+    "stem": "87、x BETWEEN y AND z 等同于 x>y AND x<z。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。BETWEEN...AND是闭区间，等同于 x>=y AND x<=z，而不是严格的 x>y AND x<z。"
+  },
+  {
+    "id": 88,
+    "kind": "true_false",
+    "stem": "88、INSERT语句所插入的数据行数据可以来自另外一个SELECT语句的结果集。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。INSERT INTO ... SELECT ... 可以从SELECT结果集插入数据。"
+  },
+  {
+    "id": 89,
+    "kind": "true_false",
+    "stem": "89、在MySQL中，局部变量应该在存储过程、存储函数、触发器中定义。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。局部变量只能在存储过程、存储函数、触发器等程序块中定义和使用。"
+  },
+  {
+    "id": 90,
+    "kind": "true_false",
+    "stem": "90、SQL语言只涉及查询数据的语句，并不包括修改和删除数据的语句。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。SQL包括数据查询（DQL）、数据操纵（DML如INSERT/UPDATE/DELETE）、数据定义（DDL）和数据控制（DCL）。"
+  },
+  {
+    "id": 91,
+    "kind": "true_false",
+    "stem": "91、触发器不用被调用，它可以自动执行。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。触发器是自动执行的，当触发事件（INSERT/UPDATE/DELETE）发生时自动触发，不需要显式调用。"
+  },
+  {
+    "id": 92,
+    "kind": "true_false",
+    "stem": "92、触发器可通过数据库中的相关表实现级联操作。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。触发器可以实现级联操作，如删除主表记录时自动删除从表关联记录。"
+  },
+  {
+    "id": 93,
+    "kind": "true_false",
+    "stem": "93、数据库管理系统DBMS是操作系统的一部分。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。DBMS不是操作系统的一部分，是独立的数据管理软件，运行在操作系统之上。"
+  },
+  {
+    "id": 94,
+    "kind": "true_false",
+    "stem": "94、DBS是采用了数据库技术的计算机系统。DBS是一个集合体，包含计算机硬件、DB、DBMS、数据库应用系统等软件和用户。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "正确。DBS（数据库系统）包含硬件、数据库、DBMS、应用系统和用户等组成部分。"
+  },
+  {
+    "id": 95,
+    "kind": "true_false",
+    "stem": "95、删除视图时，也会删除所对应的基本表中的数据。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。删除视图不会影响基本表中的数据，视图只是虚拟表，存储的是查询定义而非数据。"
+  },
+  {
+    "id": 96,
+    "kind": "true_false",
+    "stem": "96、创建视图的关键词为CREATE TABLE。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。创建视图的关键词是CREATE VIEW，CREATE TABLE用于创建基本表。"
+  },
+  {
+    "id": 97,
+    "kind": "true_false",
+    "stem": "97、当一个表中所有行都被DELETE语句删除后，该表也同时被删除了。",
+    "options": [
+      {
+        "key": "A",
+        "text": "正确"
+      },
+      {
+        "key": "B",
+        "text": "错误"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "错误。DELETE删除所有行后表结构仍然存在，成为空表。只有DROP TABLE才会删除表结构和数据。"
+  }
+]
