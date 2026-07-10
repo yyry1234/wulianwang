@@ -13,8 +13,7 @@ html_content = f'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>题库练习系统</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-
+/* Google Fonts removed - using system font stack for instant rendering */
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 
 :root {{
@@ -37,7 +36,7 @@ html_content = f'''<!DOCTYPE html>
 }}
 
 body {{
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
@@ -73,7 +72,7 @@ body::before {{
 }}
 
 .header h1 {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 2.2em;
   font-weight: 900;
   background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
@@ -240,7 +239,7 @@ body::before {{
 .timer-bar.active {{ display: flex; }}
 
 .timer-display {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 1.5em;
   color: var(--neon-cyan);
   text-shadow: 0 0 10px rgba(0,240,255,0.5);
@@ -364,7 +363,7 @@ body::before {{
 }}
 
 .question-number {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 0.85em;
   color: var(--neon-purple);
   background: rgba(180,74,255,0.1);
@@ -430,7 +429,7 @@ body::before {{
 }}
 
 .option-item .option-key {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 0.85em;
   color: var(--neon-cyan);
   min-width: 24px;
@@ -627,7 +626,7 @@ body::before {{
 .score-panel.active {{ display: block; }}
 
 .score-panel h2 {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 1.8em;
   background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
   -webkit-background-clip: text;
@@ -649,7 +648,7 @@ body::before {{
 }}
 
 .score-circle .score-num {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 2.8em;
   font-weight: 900;
   color: var(--neon-cyan);
@@ -692,7 +691,7 @@ body::before {{
 }}
 
 .stat-item .stat-num {{
-  font-family: 'Orbitron', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Arial Black', sans-serif;
   font-size: 1.8em;
   font-weight: 700;
 }}
