@@ -854,6 +854,31 @@ body::before {
   .timer-display { font-size: 1.1em; }
 }
 
+/* Wrong Book */
+.wrong-book-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 2px 8px;
+  transition: all 0.2s;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.wrong-book-btn:hover { border-color: var(--neon-orange); color: var(--neon-orange); }
+.wrong-book-btn.bookmarked { color: var(--neon-orange); border-color: var(--neon-orange); }
+
+.wrong-book-star { color: var(--neon-orange); margin-right: 4px; }
+
+.wrong-book-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  font-size: 1.1em;
+}
+
 /* Confirm Dialog */
 .modal-overlay {
   display: none;
@@ -1018,6 +1043,7 @@ body::before {
       <button class="filter-btn" data-filter="single" onclick="setFilter('single',this)">单选题</button>
       <button class="filter-btn" data-filter="true_false" onclick="setFilter('true_false',this)">判断题</button>
       <button class="filter-btn" data-filter="blank" onclick="setFilter('blank',this)">填空题</button>
+      <button class="filter-btn" data-filter="wrong-book" onclick="setFilter('wrong-book',this)">错题本</button>
       <input type="text" class="search-input" id="search-input" placeholder="🔍 搜索题目..." oninput="onSearch()">
     </div>
     <div id="review-list"></div>
@@ -1056,6 +1082,59 @@ let reviewFilter = 'all';
 let reviewSearch = '';
 let reviewPage = 1;
 const PER_PAGE = 20;
+
+// Wrong Book
+const WRONG_BOOK_KEY = 'mysql-wrong-book';
+
+function getWrongBook() {
+  try {
+    return JSON.parse(localStorage.getItem(WRONG_BOOK_KEY) || '[]');
+  } catch (e) { return []; }
+}
+
+function saveWrongBook(ids) {
+  localStorage.setItem(WRONG_BOOK_KEY, JSON.stringify(ids));
+}
+
+function toggleWrongBook(qId, btn) {
+  let ids = getWrongBook();
+  const idx = ids.indexOf(qId);
+  if (idx >= 0) { ids.splice(idx, 1); }
+  else { ids.push(qId); }
+  saveWrongBook(ids);
+
+  if (reviewFilter === 'wrong-book') {
+    // 错题本模式：取消收藏时直接从 DOM 移除该题卡片，避免全量重建
+    const card = btn.closest('.question-card');
+    if (card) card.remove();
+    const list = document.getElementById('review-list');
+    if (list.children.length === 0) {
+      list.innerHTML = '<div class="wrong-book-empty">错题本为空</div>';
+      document.getElementById('pagination').innerHTML = '';
+    } else {
+      const filtered = getFilteredQuestions();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+      if (reviewPage > totalPages) reviewPage = totalPages;
+      renderPagination(totalPages, filtered.length);
+    }
+  } else {
+    // 非错题本模式：仅切换当前按钮样式，不做任何 DOM 重建
+    const nowBookmarked = idx < 0;
+    if (nowBookmarked) {
+      btn.classList.add('bookmarked');
+      btn.textContent = '⭐';
+      btn.title = '移出错题本';
+    } else {
+      btn.classList.remove('bookmarked');
+      btn.textContent = '☆';
+      btn.title = '加入错题本';
+    }
+  }
+}
+
+function isInWrongBook(qId) {
+  return getWrongBook().includes(qId);
+}
 
 function switchMode(mode) {
   currentMode = mode;
@@ -1114,6 +1193,8 @@ function startExam() {
 
   renderExamQuestions();
   renderNavBar();
+  document.getElementById('nav-bar').classList.add('collapsed');
+  document.getElementById('nav-toggle-btn').textContent = '☰';
   startTimer();
 }
 
@@ -1145,8 +1226,14 @@ function renderNavBar() {
     const answered = examAnswers[i] !== undefined || examBlankAnswers[i] !== undefined;
     return '<div class="nav-dot' + (answered ? ' answered' : '') + '" onclick="scrollToQ(' + i + ')" title="第' + (i+1) + '题">' + (i+1) + '</div>';
   }).join('');
-  document.getElementById('nav-bar').classList.add('collapsed');
-  document.getElementById('nav-toggle-btn').textContent = '☰';
+}
+
+function updateNavDotState(idx) {
+  const dots = document.querySelectorAll('#nav-inner .nav-dot');
+  if (dots[idx]) {
+    const hasAnswer = examAnswers[idx] !== undefined || examBlankAnswers[idx] !== undefined;
+    dots[idx].classList.toggle('answered', hasAnswer);
+  }
 }
 
 function scrollToQ(idx) {
@@ -1246,7 +1333,7 @@ function onBlankInput(qIdx, value) {
   } else {
     delete examBlankAnswers[qIdx];
   }
-  renderNavBar();
+  updateNavDotState(qIdx);
 }
 
 function selectOption(qIdx, key, isMulti) {
@@ -1271,7 +1358,7 @@ function selectOption(qIdx, key, isMulti) {
       el.classList.toggle('selected', examAnswers[qIdx] && examAnswers[qIdx].includes(el.dataset.key));
     });
   }
-  renderNavBar();
+  updateNavDotState(qIdx);
 }
 
 function confirmSubmit() {
@@ -1301,6 +1388,7 @@ function doSubmit() {
   examSubmitted = true;
 
   let correct = 0, wrong = 0, skip = 0;
+  const wrongQIds = [];
   examQuestions.forEach((q, i) => {
     if (q.kind === 'blank') {
       const userAns = examBlankAnswers[i];
@@ -1309,7 +1397,7 @@ function doSubmit() {
       const correctAnswers = q.answer.map(a => a.trim().toLowerCase());
       const isCorrect = correctAnswers.includes(userAns.toLowerCase());
       if (isCorrect) correct++;
-      else wrong++;
+      else { wrong++; wrongQIds.push(q.id); }
 
       // Highlight input
       const input = document.getElementById('blank-input-' + i);
@@ -1325,7 +1413,7 @@ function doSubmit() {
       const userSorted = [...userAns].sort();
       const isCorrect = correctAns.length === userSorted.length && correctAns.every((v, j) => v === userSorted[j]);
       if (isCorrect) correct++;
-      else wrong++;
+      else { wrong++; wrongQIds.push(q.id); }
 
       // Highlight options
       const items = document.querySelectorAll('[data-q="' + i + '"]');
@@ -1341,6 +1429,13 @@ function doSubmit() {
 
   const total = examQuestions.length;
   const score = total > 0 ? Math.round(correct / total * 100) : 0;
+
+  // Add wrong questions to wrong book
+  if (wrongQIds.length > 0) {
+    const wb = getWrongBook();
+    const merged = [...new Set([...wb, ...wrongQIds])];
+    saveWrongBook(merged);
+  }
 
   document.getElementById('timer-bar').classList.remove('active');
   document.getElementById('nav-bar').classList.remove('active');
@@ -1372,7 +1467,12 @@ function backToHome() {
 // Review Mode
 function getFilteredQuestions() {
   let qs = allQuestions;
-  if (reviewFilter !== 'all') qs = qs.filter(q => q.kind === reviewFilter);
+  if (reviewFilter === 'wrong-book') {
+    const wbIds = getWrongBook();
+    qs = qs.filter(q => wbIds.includes(q.id));
+  } else if (reviewFilter !== 'all') {
+    qs = qs.filter(q => q.kind === reviewFilter);
+  }
   if (reviewSearch.trim()) {
     const s = reviewSearch.trim().toLowerCase();
     qs = qs.filter(q => q.stem.toLowerCase().includes(s) || q.options.some(o => o.text.toLowerCase().includes(s)));
@@ -1382,6 +1482,13 @@ function getFilteredQuestions() {
 
 function renderReview() {
   const filtered = getFilteredQuestions();
+
+  if (reviewFilter === 'wrong-book' && filtered.length === 0) {
+    document.getElementById('review-list').innerHTML = '<div class="wrong-book-empty">错题本为空</div>';
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
   if (reviewPage > totalPages) reviewPage = totalPages;
   const start = (reviewPage - 1) * PER_PAGE;
@@ -1390,16 +1497,21 @@ function renderReview() {
   const list = document.getElementById('review-list');
   list.innerHTML = pageItems.map((q, idx) => {
     const realIdx = allQuestions.indexOf(q);
+    const qId = q.id || (realIdx + 1);
     const kindLabel = getKindLabel(q.kind);
     const kindClass = getKindClass(q.kind);
+    const bookmarked = isInWrongBook(qId);
+    const starBtn = '<button class="wrong-book-btn' + (bookmarked ? ' bookmarked' : '') + '" onclick="event.stopPropagation();toggleWrongBook(' + qId + ', this)" title="' + (bookmarked ? '移出错题本' : '加入错题本') + '">' + (bookmarked ? '⭐' : '☆') + '</button>';
+    const starStem = (reviewFilter === 'wrong-book' && bookmarked) ? '<span class="wrong-book-star">⭐</span>' : '';
 
     if (q.kind === 'blank') {
       return '<div class="question-card">'
         + '<div class="question-header">'
-        + '<span class="question-number">第 ' + (q.id || (realIdx+1)) + ' 题</span>'
+        + '<span class="question-number">第 ' + qId + ' 题</span>'
         + '<span class="question-kind ' + kindClass + '">' + kindLabel + '</span>'
+        + starBtn
         + '</div>'
-        + '<div class="question-stem">' + escapeHtml(q.stem) + '</div>'
+        + '<div class="question-stem">' + starStem + escapeHtml(q.stem) + '</div>'
         + '<button class="review-toggle" onclick="toggleExplanation(this)">显示答案与解析</button>'
         + '<div class="explanation">'
         + '<div class="answer-label">正确答案：' + q.answer.join(' 或 ') + '</div>'
@@ -1418,10 +1530,11 @@ function renderReview() {
     }).join('');
     return '<div class="question-card">'
       + '<div class="question-header">'
-      + '<span class="question-number">第 ' + (q.id || (realIdx+1)) + ' 题</span>'
+      + '<span class="question-number">第 ' + qId + ' 题</span>'
       + '<span class="question-kind ' + kindClass + '">' + kindLabel + '</span>'
+      + starBtn
       + '</div>'
-      + '<div class="question-stem">' + escapeHtml(q.stem) + '</div>'
+      + '<div class="question-stem">' + starStem + escapeHtml(q.stem) + '</div>'
       + '<div class="options-list">' + optionsHtml + '</div>'
       + '<button class="review-toggle" onclick="toggleExplanation(this)">显示解析</button>'
       + '<div class="explanation">'
