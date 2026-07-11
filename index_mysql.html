@@ -214,6 +214,48 @@ body::before {
   border-color: var(--neon-cyan);
 }
 
+.checkbox-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 1em;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--neon-cyan);
+  cursor: pointer;
+}
+
+.mode-toggle-btn {
+  padding: 8px 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mode-toggle-btn:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.mode-toggle-btn.selected {
+  border-color: var(--neon-cyan);
+  background: rgba(0,240,255,0.12);
+  color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+  font-weight: 700;
+}
+
 .start-exam-btn {
   padding: 14px 50px;
   background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
@@ -962,13 +1004,21 @@ body::before {
   <div class="exam-config" id="exam-config">
     <h3>⚙️ 考试设置</h3>
     <div class="config-row">
-      <label>题目范围：</label>
-      <select id="exam-scope" onchange="toggleExamScope()">
-        <option value="random">随机抽取</option>
-        <option value="all">使用全部 97 题</option>
-      </select>
+      <label style="color:var(--text-secondary);min-width:auto;">出题方式：</label>
+      <button class="mode-toggle-btn selected" id="btn-sequential" onclick="toggleExamMode('sequential')">顺序出题</button>
+      <button class="mode-toggle-btn" id="btn-random" onclick="toggleExamMode('random')">随机打乱</button>
     </div>
-    <div id="random-config">
+    <div id="sequential-config">
+      <div class="config-row">
+        <label>起始题号：</label>
+        <input type="number" id="start-num" value="1" min="1" max="97">
+        <span style="color:var(--text-secondary);font-size:0.85em;">—</span>
+        <label>结束题号：</label>
+        <input type="number" id="end-num" value="97" min="1" max="97">
+        <span style="color:var(--text-secondary);font-size:0.85em;">(共 97 题)</span>
+      </div>
+    </div>
+    <div id="random-config" style="display:none;">
       <div class="config-row">
         <label>单选题数：</label>
         <input type="number" id="single-count" value="30" min="1" max="61">
@@ -1149,9 +1199,12 @@ function switchMode(mode) {
   if (mode === 'review') { reviewPage = 1; renderReview(); }
 }
 
-function toggleExamScope() {
-  const scope = document.getElementById('exam-scope').value;
-  document.getElementById('random-config').style.display = scope === 'random' ? 'block' : 'none';
+function toggleExamMode(mode) {
+  const sequential = (mode === 'sequential');
+  document.getElementById('btn-sequential').classList.toggle('selected', sequential);
+  document.getElementById('btn-random').classList.toggle('selected', !sequential);
+  document.getElementById('sequential-config').style.display = sequential ? 'block' : 'none';
+  document.getElementById('random-config').style.display = sequential ? 'none' : 'block';
 }
 
 function shuffle(arr) {
@@ -1164,18 +1217,22 @@ function shuffle(arr) {
 }
 
 function startExam() {
-  const scope = document.getElementById('exam-scope').value;
-  let singles = allQuestions.filter(q => q.kind === 'single');
-  let tfs = allQuestions.filter(q => q.kind === 'true_false');
-  let blanks = allQuestions.filter(q => q.kind === 'blank');
+  const sequential = document.getElementById('btn-sequential').classList.contains('selected');
 
-  if (scope === 'random') {
+  if (sequential) {
+    const start = parseInt(document.getElementById('start-num').value) || 1;
+    const end = parseInt(document.getElementById('end-num').value) || allQuestions.length;
+    const s = Math.max(1, Math.min(start, allQuestions.length));
+    const e = Math.max(s, Math.min(end, allQuestions.length));
+    examQuestions = allQuestions.slice(s - 1, e);
+  } else {
+    let singles = allQuestions.filter(q => q.kind === 'single');
+    let tfs = allQuestions.filter(q => q.kind === 'true_false');
+    let blanks = allQuestions.filter(q => q.kind === 'blank');
     const sc = Math.min(parseInt(document.getElementById('single-count').value) || 30, singles.length);
     const tc = Math.min(parseInt(document.getElementById('tf-count').value) || 10, tfs.length);
     const bc = Math.min(parseInt(document.getElementById('blank-count').value) || 8, blanks.length);
     examQuestions = [...shuffle(singles).slice(0, sc), ...shuffle(tfs).slice(0, tc), ...shuffle(blanks).slice(0, bc)];
-  } else {
-    examQuestions = shuffle(allQuestions);
   }
 
   examAnswers = {};
